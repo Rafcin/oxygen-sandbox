@@ -1,0 +1,45 @@
+{
+  "name": "oxygen",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "[----[Build]----]": "",
+    "build": "dotenv -- turbo run build --include-dependencies",
+    "sandbox:build": "dotenv -- turbo run build --filter=@oxygen/sandbox",
+    "[----[Dev]----]": "",
+    "dev": "dotenv -- turbo run dev --include-dependencies",
+    "sandbox:dev": "dotenv -- turbo run dev --filter=@oxygen/sandbox",
+    "[----[Lint/Format]----]": "",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "[----[Clean]----]": "",
+    "clean": "turbo run clean && rimraf node_modules pnpm-lock.yaml && pnpm i"
+  },
+  "devDependencies": {
+    "@types/eslint": "^8.21.1",
+    "@types/node": "^18.14.6",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "eslint": "^8.35.0",
+    "eslint-config-next": "13.2.3",
+    "is-ci": "^3.0.1",
+    "prettier": "latest",
+    "pretty-quick": "^3.1.3",
+    "rimraf": "^4.3.1",
+    "tsup": "^6.6.3",
+    "turbo": "latest",
+    "typescript": "^4.9.5"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "@tsconfig/recommended": "^1.0.2",
+    "dotenv-cli": "^7.0.0"
+  },
+  "packageManager": "pnpm@7.27.1"
+}
